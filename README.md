@@ -23,6 +23,9 @@ The core of the project will be creating users, managing access, managing items,
 - OpenAPI 2.0.4
 
 ### API Documentation
+#### Project Architecture
+![Web 1](https://github.com/gregorydossantos/e-commerce/blob/develop/assets/project-architecture.png)
+<br />
 #### Database Model
 #### Sequence Diagram - API Client
 #### Sequence Diagram - API Item-Manager

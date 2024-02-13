@@ -1,8 +1,8 @@
-package com.fiap.gregory.client.domain.usecase;
+package com.fiap.gregory.client.service.maintenance;
 
 import com.fiap.gregory.client.rest.dto.request.ClientRequest;
 
-public interface ClientUseCase {
+public interface ClientService {
 
     void createClient(ClientRequest request);
 }

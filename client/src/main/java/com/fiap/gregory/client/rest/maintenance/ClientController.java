@@ -12,5 +12,5 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public interface ClientController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    ResponseEntity<ClientResponse> createClient(@RequestBody @Valid ClientRequest request);
+    ResponseEntity<Void> createClient(@RequestBody @Valid ClientRequest request);
 }

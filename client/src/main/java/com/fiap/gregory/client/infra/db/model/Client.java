@@ -41,5 +41,5 @@ public class Client {
     Integer password;
 
     @Column(name = "role", length = 1)
-    Character role;
+    String role;
 }

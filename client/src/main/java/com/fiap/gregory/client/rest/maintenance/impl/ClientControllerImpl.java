@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.fiap.gregory.client.domain.message.ClientMessage.PATH_CLIENT;
 
 @RestController
+@AllArgsConstructor
 @Tag(name = "Client Controller")
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @RequestMapping(value = PATH_CLIENT, produces = {"application/json"})
 public class ClientControllerImpl implements ClientController {
@@ -36,7 +37,7 @@ public class ClientControllerImpl implements ClientController {
             @ApiResponse(responseCode = "500", description = "Internal error")
     })
     @Override
-    public ResponseEntity<ClientResponse> createClient(ClientRequest request) {
+    public ResponseEntity<Void> createClient(ClientRequest request) {
         service.createClient(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

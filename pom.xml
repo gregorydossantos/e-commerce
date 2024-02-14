@@ -25,6 +25,7 @@
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
 		<jacoco.version>0.8.8</jacoco.version>
 		<maven.version>3.8.1</maven.version>
+		<rest-assured.version>5.4.0</rest-assured.version>
 	</properties>
 
 	<modules>
@@ -73,6 +74,12 @@
 			<artifactId>mapstruct</artifactId>
 			<version>${mapstruct.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${rest-assured.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -85,6 +92,11 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
 						<path>
 							<groupId>org.mapstruct</groupId>
 							<artifactId>mapstruct-processor</artifactId>

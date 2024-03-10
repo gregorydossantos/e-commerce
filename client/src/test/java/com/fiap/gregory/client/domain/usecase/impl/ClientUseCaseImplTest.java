@@ -25,6 +25,8 @@ import static org.mockito.Mockito.when;
 @ActiveProfiles("test")
 class ClientUseCaseImplTest {
 
+    ClientRequest request;
+
     @Mock
     ClientMapper mapper;
 
@@ -37,16 +39,25 @@ class ClientUseCaseImplTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+        mockRequest();
+    }
+
+    private void mockRequest() {
+        request = ClientRequest.builder()
+                .name("Gregory")
+                .lastName("Test")
+                .email("gregory.test@email.com")
+                .password(1234567890)
+                .build();
     }
 
     @Test
     @DisplayName("USE CASE LAYER ::: Create client successfully")
     void should_ReturnsHttpStatusCreated_When_CreateClientWithSuccess() {
-        var request = Mockito.mock(ClientRequest.class);
         var client = Mockito.mock(Client.class);
 
-        when(repository.findByEmail(anyString())).thenReturn(Optional.ofNullable(client));
-        when(mapper.toEntity(any(ClientRequest.class))).thenReturn(client);
+        when(repository.findByEmail(anyString())).thenReturn(Optional.empty());
+        when(mapper.toEntity(request)).thenReturn(client);
 
         useCase.createClient(request);
 

@@ -1,7 +1,6 @@
 package com.fiap.gregory.client.rest.maintenance.impl;
 
 import com.fiap.gregory.client.rest.dto.request.ClientRequest;
-import com.fiap.gregory.client.rest.dto.response.ClientResponse;
 import com.fiap.gregory.client.rest.maintenance.ClientController;
 import com.fiap.gregory.client.service.maintenance.ClientService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,9 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -5,15 +5,13 @@ import com.fiap.gregory.client.domain.usecase.ClientUseCase;
 import com.fiap.gregory.client.infra.db.repository.ClientRepository;
 import com.fiap.gregory.client.rest.dto.request.ClientRequest;
 import com.fiap.gregory.client.rest.exceptionhandler.exception.DataIntegrityException;
-import com.fiap.gregory.client.rest.useful.ClientRole;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.fiap.gregory.client.domain.message.ClientMessage.DATA_INTEGRITY;
+import static com.fiap.gregory.client.rest.useful.ClientRole.U;
 
 @Service
 @AllArgsConstructor
@@ -29,7 +27,7 @@ public class ClientUseCaseImpl implements ClientUseCase {
             throw new DataIntegrityException(DATA_INTEGRITY);
 
         var client = mapper.toEntity(request);
-        client.setRole(ClientRole.U.name());
+        client.setRole(U.getValue());
         repository.save(client);
     }
 

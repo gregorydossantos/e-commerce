@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: ${APP_PROFILE:test}
   h2:
     console:
       enabled: true

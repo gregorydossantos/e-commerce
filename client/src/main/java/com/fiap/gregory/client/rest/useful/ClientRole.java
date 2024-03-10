@@ -6,4 +6,8 @@ public enum ClientRole {
     ClientRole(String value) {
         this.value = value;
     }
+
+    public String getValue() {
+        return value;
+    }
 }

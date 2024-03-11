@@ -28,7 +28,7 @@ public class ClientControllerImpl implements ClientController {
 
     @Operation(summary = "Create a client", method = "POST")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Successfully created address"),
+            @ApiResponse(responseCode = "201", description = "Successfully created client"),
             @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "404", description = "Not Found"),
             @ApiResponse(responseCode = "500", description = "Internal error")

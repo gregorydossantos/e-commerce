@@ -17,6 +17,6 @@ public interface ItemQueryController {
     @GetMapping(consumes = APPLICATION_JSON_VALUE)
     ResponseEntity<List<ItemResponse>> getAllItems();
 
-    @GetMapping(consumes = APPLICATION_JSON_VALUE)
+    @GetMapping(value = "{id}",consumes = APPLICATION_JSON_VALUE)
     ResponseEntity<ItemResponse> getOneItemById(@PathVariable("id") Long id);
 }

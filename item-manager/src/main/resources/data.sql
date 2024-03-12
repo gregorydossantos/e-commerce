@@ -1,0 +1,1 @@
+insert into tb_item(product, price) values('Carregador UBS', 100.99);

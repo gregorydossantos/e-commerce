@@ -36,7 +36,8 @@ public class ItemQueryControllerImpl implements ItemQueryController {
     })
     @Override
     public ResponseEntity<List<ItemResponse>> getAllItems() {
-        return null;
+        var response = serviceQuery.getAllItems();
+        return ResponseEntity.ok().body(response);
     }
 
     @Operation(summary = "List one item by id", method = "GET")
@@ -48,6 +49,7 @@ public class ItemQueryControllerImpl implements ItemQueryController {
     })
     @Override
     public ResponseEntity<ItemResponse> getOneItemById(Long id) {
-        return null;
+        var response = serviceQuery.getOneItemById(id);
+        return ResponseEntity.ok().body(response);
     }
 }

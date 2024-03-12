@@ -1,0 +1,1 @@
+insert into tb_shopping_cart() values();

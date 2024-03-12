@@ -29,7 +29,7 @@ public class ItemQueryControllerImpl implements ItemQueryController {
 
     @Operation(summary = "List all items", method = "GET")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Successfully listed items"),
+            @ApiResponse(responseCode = "200", description = "Successfully listed items"),
             @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "404", description = "Not Found"),
             @ApiResponse(responseCode = "500", description = "Internal error")
@@ -42,7 +42,7 @@ public class ItemQueryControllerImpl implements ItemQueryController {
 
     @Operation(summary = "List one item by id", method = "GET")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Successfully get one item"),
+            @ApiResponse(responseCode = "200", description = "Successfully get one item"),
             @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "404", description = "Not Found"),
             @ApiResponse(responseCode = "500", description = "Internal error")

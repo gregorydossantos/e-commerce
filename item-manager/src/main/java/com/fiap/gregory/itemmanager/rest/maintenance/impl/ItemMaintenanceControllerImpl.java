@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,30 +36,33 @@ public class ItemMaintenanceControllerImpl implements ItemMaintenanceController 
     })
     @Override
     public ResponseEntity<Void> createItem(ItemRequest request) {
-        return null;
+        serviceMaintenance.createItem(request);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @Operation(summary = "Update a item", method = "PUT")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Successfully update item"),
+            @ApiResponse(responseCode = "200", description = "Successfully update item"),
             @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "404", description = "Not Found"),
             @ApiResponse(responseCode = "500", description = "Internal error")
     })
     @Override
     public ResponseEntity<ItemResponse> updateItem(Long id, ItemRequest request) {
-        return null;
+        var response = serviceMaintenance.updateItem(id, request);
+        return ResponseEntity.ok().body(response);
     }
 
     @Operation(summary = "Delete a item", method = "DELETE")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Successfully delete item"),
+            @ApiResponse(responseCode = "200", description = "Successfully delete item"),
             @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "404", description = "Not Found"),
             @ApiResponse(responseCode = "500", description = "Internal error")
     })
     @Override
     public ResponseEntity<Void> deleteItem(Long id) {
-        return null;
+        serviceMaintenance.deleteItem(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

@@ -17,9 +17,9 @@ public interface ItemMaintenanceController {
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     ResponseEntity<Void> createItem(@RequestBody @Valid ItemRequest request);
 
-    @PutMapping(consumes = APPLICATION_JSON_VALUE)
+    @PutMapping(value = "{id}", consumes = APPLICATION_JSON_VALUE)
     ResponseEntity<ItemResponse> updateItem(@PathVariable("id") Long id, @RequestBody @Valid ItemRequest request);
 
-    @DeleteMapping(consumes = APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "{id}", consumes = APPLICATION_JSON_VALUE)
     ResponseEntity<Void> deleteItem(@PathVariable("id") Long id);
 }

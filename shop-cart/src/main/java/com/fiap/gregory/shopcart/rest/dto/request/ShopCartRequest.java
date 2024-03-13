@@ -7,7 +7,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
-import static com.fiap.gregory.client.domain.message.ClientMessage.FIELD_MANDATORY;
+import static com.fiap.gregory.shopcart.domain.message.ShopCartMessage.FIELD_MANDATORY;
 
 @Data
 @Builder

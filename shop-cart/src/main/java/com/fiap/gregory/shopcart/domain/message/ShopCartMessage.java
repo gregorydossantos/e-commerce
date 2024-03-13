@@ -1,11 +1,10 @@
 package com.fiap.gregory.shopcart.domain.message;
 
 public class ShopCartMessage {
-    public static final String PATH_CLIENT = "/v1/shop-cart";
-    public static final String DATA_INTEGRITY = "Client already register!";
-    public static final String FIELD_MANDATORY = "is a mandatory field!";
-    public static final String NAME_SIZE = "Name must contain a maximum of 50 characters!";
-    public static final String LAST_NAME_SIZE = "Last Name must contain a maximum of 50 characters!";
-    public static final String PASSWORD_SIZE = "Password must contain 10 characters!";
-    public static final String EMAIL_INVALID = "Email invalid!";
+    public static final String PATH_SHOP_CART = "/v1/shop-cart";
+    public static final String BAD_REQUEST = "Bad request!";
+    public static final String DATA_EMPTY_OR_NULL = "Item is empty or null!";
+    public static final String DATA_INTEGRITY = "Shopping cart already register!";
+    public static final String SHOP_CART_NOT_FOUND = "Shopping cart not found!";
+    public static final String FIELD_MANDATORY = "Is a mandatory field!";
 }

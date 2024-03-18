@@ -5,9 +5,9 @@ import com.fiap.gregory.itemmanager.domain.usecase.maintenance.ItemUseCaseMainte
 import com.fiap.gregory.itemmanager.infra.db.repository.ItemRepository;
 import com.fiap.gregory.itemmanager.rest.dto.request.ItemRequest;
 import com.fiap.gregory.itemmanager.rest.dto.response.ItemResponse;
-import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.DataEmptyOrNullException;
-import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.DataIntegrityException;
-import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.NotFoundException;
+import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.ItemDataEmptyOrNullException;
+import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.ItemDataIntegrityException;
+import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.ItemNotFoundException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -28,7 +28,7 @@ public class ItemUseCaseMaintenanceImpl implements ItemUseCaseMaintenance {
     @Override
     public void createItem(ItemRequest request) {
         if (itemExists(request.getProduct())) {
-            throw new DataIntegrityException(DATA_INTEGRITY);
+            throw new ItemDataIntegrityException(DATA_INTEGRITY);
         }
 
         var item = mapper.toEntity(request);
@@ -40,7 +40,7 @@ public class ItemUseCaseMaintenanceImpl implements ItemUseCaseMaintenance {
         var item = repository.findById(id);
 
         if (item.isEmpty()) {
-            throw new DataEmptyOrNullException(DATA_EMPTY_OR_NULL);
+            throw new ItemDataEmptyOrNullException(DATA_EMPTY_OR_NULL);
         }
 
         var itemUpdate = mapper.toUpdate(item.get(), request);
@@ -54,7 +54,7 @@ public class ItemUseCaseMaintenanceImpl implements ItemUseCaseMaintenance {
         var response = repository.findById(id);
 
         if (response.isEmpty()) {
-            throw new NotFoundException(ITEM_NOT_FOUND);
+            throw new ItemNotFoundException(ITEM_NOT_FOUND);
         }
 
         repository.delete(response.get());

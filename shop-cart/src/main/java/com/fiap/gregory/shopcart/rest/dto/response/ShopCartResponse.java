@@ -1,14 +1,15 @@
 package com.fiap.gregory.shopcart.rest.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fiap.gregory.client.infra.db.model.Client;
-import com.fiap.gregory.itemmanager.rest.dto.response.ItemResponse;
+import com.fiap.gregory.shopcart.domain.dto.ClientDTO;
+import com.fiap.gregory.shopcart.domain.dto.ItemDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
 
@@ -20,8 +21,9 @@ public class ShopCartResponse {
 
     @JsonProperty(access = WRITE_ONLY)
     private Long id;
+    private String idShopCart;
     private Integer amount;
     private BigDecimal total;
-    private Client client;
-    private ItemResponse item;
+    private ClientDTO client;
+    private List<ItemDTO> items;
 }

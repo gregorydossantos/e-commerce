@@ -4,7 +4,7 @@ import com.fiap.gregory.client.domain.mapper.ClientMapper;
 import com.fiap.gregory.client.domain.usecase.ClientUseCase;
 import com.fiap.gregory.client.infra.db.repository.ClientRepository;
 import com.fiap.gregory.client.rest.dto.request.ClientRequest;
-import com.fiap.gregory.client.rest.exceptionhandler.exception.DataIntegrityException;
+import com.fiap.gregory.client.rest.exceptionhandler.exception.ClientDataIntegrityException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -24,7 +24,7 @@ public class ClientUseCaseImpl implements ClientUseCase {
     @Override
     public void createClient(ClientRequest request) {
         if (clientExists(request.getEmail()))
-            throw new DataIntegrityException(DATA_INTEGRITY);
+            throw new ClientDataIntegrityException(DATA_INTEGRITY);
 
         var client = mapper.toEntity(request);
         client.setRole(U.getValue());

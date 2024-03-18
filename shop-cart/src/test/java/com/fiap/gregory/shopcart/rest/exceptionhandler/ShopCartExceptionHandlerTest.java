@@ -1,9 +1,9 @@
 package com.fiap.gregory.shopcart.rest.exceptionhandler;
 
-import com.fiap.gregory.shopcart.rest.exceptionhandler.exception.BadRequestException;
-import com.fiap.gregory.shopcart.rest.exceptionhandler.exception.DataEmptyOrNullException;
-import com.fiap.gregory.shopcart.rest.exceptionhandler.exception.DataIntegrityException;
-import com.fiap.gregory.shopcart.rest.exceptionhandler.exception.NotFoundException;
+import com.fiap.gregory.shopcart.rest.exceptionhandler.exception.ShopCartBadRequestException;
+import com.fiap.gregory.shopcart.rest.exceptionhandler.exception.ShopCartDataEmptyOrNullException;
+import com.fiap.gregory.shopcart.rest.exceptionhandler.exception.ShopCartDataIntegrityException;
+import com.fiap.gregory.shopcart.rest.exceptionhandler.exception.ShopCartNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,7 +34,7 @@ class ShopCartExceptionHandlerTest {
     @DisplayName("Should be returns BadRequestException")
     void should_ReturnsBadRequestException_When_RequestIsInvalid() {
         ResponseEntity<ErrorResponse> response = shopCartExceptionHandler.badRequestException(
-                new BadRequestException(BAD_REQUEST));
+                new ShopCartBadRequestException(BAD_REQUEST));
 
         assertNotNull(response);
         assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
@@ -44,7 +44,7 @@ class ShopCartExceptionHandlerTest {
     @DisplayName("Should be returns DataEmptyOrNullException")
     void should_ReturnsDataEmptyOrNullException_When_ShoppingCartIsEmpty() {
         ResponseEntity<ErrorResponse> response = shopCartExceptionHandler.dataEmptyOrNullException(
-                new DataEmptyOrNullException(DATA_EMPTY_OR_NULL));
+                new ShopCartDataEmptyOrNullException(DATA_EMPTY_OR_NULL));
 
         assertNotNull(response);
         assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
@@ -54,7 +54,7 @@ class ShopCartExceptionHandlerTest {
     @DisplayName("Should be returns DataIntegrityException")
     void should_ReturnsDataIntegrityException_When_ShoppingCartAlreadyExists() {
         ResponseEntity<ErrorResponse> response = shopCartExceptionHandler.dataIntegrityException(
-                new DataIntegrityException(DATA_INTEGRITY));
+                new ShopCartDataIntegrityException(DATA_INTEGRITY));
 
         assertNotNull(response);
         assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
@@ -64,7 +64,7 @@ class ShopCartExceptionHandlerTest {
     @DisplayName("Should be returns NotFoundException")
     void should_ReturnsNotFoundException_When_ShoppingCartNotFound() {
         ResponseEntity<ErrorResponse> response = shopCartExceptionHandler.notFoundException(
-                new NotFoundException(SHOP_CART_NOT_FOUND));
+                new ShopCartNotFoundException(SHOP_CART_NOT_FOUND));
 
         assertNotNull(response);
         assertEquals(response.getStatusCode(), HttpStatus.NOT_FOUND);

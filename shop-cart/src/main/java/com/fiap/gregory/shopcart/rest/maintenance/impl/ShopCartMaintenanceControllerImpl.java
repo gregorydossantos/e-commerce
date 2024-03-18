@@ -50,7 +50,7 @@ public class ShopCartMaintenanceControllerImpl implements ShopCartMaintenanceCon
     @Override
     public ResponseEntity<ShopCartResponse> increaseProduct(Long id, ShopCartRequest request) {
         var response = serviceMaintenance.increaseProduct(id, request);
-        return null;
+        return ResponseEntity.ok().body(response);
     }
 
     @Operation(summary = "Delete products from shopping cart", method = "DELETE")
@@ -61,8 +61,8 @@ public class ShopCartMaintenanceControllerImpl implements ShopCartMaintenanceCon
             @ApiResponse(responseCode = "500", description = "Internal error")
     })
     @Override
-    public ResponseEntity<Void> deleteProduct(Long id) {
-        serviceMaintenance.deleteProduct(id);
+    public ResponseEntity<Void> deleteProduct(Long id, String idShopCart, Long itemId) {
+        serviceMaintenance.deleteProduct(id, idShopCart, itemId);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

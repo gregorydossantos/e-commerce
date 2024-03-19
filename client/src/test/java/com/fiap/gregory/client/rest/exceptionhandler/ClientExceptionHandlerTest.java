@@ -1,6 +1,6 @@
 package com.fiap.gregory.client.rest.exceptionhandler;
 
-import com.fiap.gregory.client.rest.exceptionhandler.exception.DataIntegrityException;
+import com.fiap.gregory.client.rest.exceptionhandler.exception.ClientDataIntegrityException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,7 +31,17 @@ class ClientExceptionHandlerTest {
     @DisplayName("Should be return DataIntegrityException")
     void should_ReturnsDataIntegrityException_When_ClientAlreadyExists() {
         ResponseEntity<ErrorResponse> response = clientExceptionHandler.dataIntegrityException(
-                new DataIntegrityException(DATA_INTEGRITY));
+                new ClientDataIntegrityException(DATA_INTEGRITY));
+
+        assertNotNull(response);
+        assertEquals(response.getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Test
+    @DisplayName("Should be return NotFoundException")
+    void should_ReturnsNotFoundException_When_ClientNonExists() {
+        ResponseEntity<ErrorResponse> response = clientExceptionHandler.dataIntegrityException(
+                new ClientDataIntegrityException(DATA_INTEGRITY));
 
         assertNotNull(response);
         assertEquals(response.getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR);

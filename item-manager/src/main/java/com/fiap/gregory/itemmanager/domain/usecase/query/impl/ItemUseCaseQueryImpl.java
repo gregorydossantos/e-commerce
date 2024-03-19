@@ -4,8 +4,8 @@ import com.fiap.gregory.itemmanager.domain.mapper.ItemMapper;
 import com.fiap.gregory.itemmanager.domain.usecase.query.ItemUseCaseQuery;
 import com.fiap.gregory.itemmanager.infra.db.repository.ItemRepository;
 import com.fiap.gregory.itemmanager.rest.dto.response.ItemResponse;
-import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.DataEmptyOrNullException;
-import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.NotFoundException;
+import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.ItemDataEmptyOrNullException;
+import com.fiap.gregory.itemmanager.rest.exceptionhandler.exception.ItemNotFoundException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -29,7 +29,7 @@ public class ItemUseCaseQueryImpl implements ItemUseCaseQuery {
         var response = repository.findAll();
 
         if (response.isEmpty()) {
-            throw new NotFoundException(ITEM_NOT_FOUND);
+            throw new ItemNotFoundException(ITEM_NOT_FOUND);
         }
 
         return mapper.toResponseList(response);
@@ -40,7 +40,7 @@ public class ItemUseCaseQueryImpl implements ItemUseCaseQuery {
         var response = repository.findById(id);
 
         if (response.isEmpty()) {
-            throw new DataEmptyOrNullException(DATA_EMPTY_OR_NULL);
+            throw new ItemDataEmptyOrNullException(DATA_EMPTY_OR_NULL);
         }
 
         return mapper.toResponse(response.get());

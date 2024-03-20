@@ -28,7 +28,7 @@ public class PaymentUseCaseMaintenanceImpl implements PaymentUseCaseMaintenance 
 
     @Override
     public void payment(PaymentRequest request) {
-        if (!shopCartExists(request)) {
+        if (!shopCartExists(request.getIdShopCart())) {
             throw new PaymentNotFoundException(SHOP_CART_DATA_NOT_FOUND);
         }
 

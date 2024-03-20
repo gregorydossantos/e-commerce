@@ -18,8 +18,8 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "transaction", length = 1)
-    String transaction;
+    @Column(name = "operation", length = 1)
+    String operation;
 
     @Column(name = "paid")
     Boolean paid;

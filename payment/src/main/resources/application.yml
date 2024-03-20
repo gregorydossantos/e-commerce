@@ -21,4 +21,4 @@ spring:
   main:
     allow-bean-definition-overriding: true
 server:
-  port: 8083
+  port: 8084

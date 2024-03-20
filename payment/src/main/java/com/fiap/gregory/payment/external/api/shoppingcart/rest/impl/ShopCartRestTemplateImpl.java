@@ -2,8 +2,10 @@ package com.fiap.gregory.payment.external.api.shoppingcart.rest.impl;
 
 import com.fiap.gregory.payment.external.api.shoppingcart.response.ShopCartResponse;
 import com.fiap.gregory.payment.external.api.shoppingcart.rest.ShopCartRestTemplate;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+@RestController
 public class ShopCartRestTemplateImpl implements ShopCartRestTemplate {
 
     private static final String PATH_API_SHOPPING_CART = "http://localhost:8083/v1/shop-cart/";

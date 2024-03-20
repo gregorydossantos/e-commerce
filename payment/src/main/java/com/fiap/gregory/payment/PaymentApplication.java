@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.fiap.gregory.payment.*"})
-@EntityScan(basePackages = {"com.fiap.gregory.payment.*"})
-@EnableJpaRepositories(basePackages = {"com.fiap.gregory.payment.*"})
+@EntityScan(basePackages = {"com.fiap.gregory.payment.infra.db.*"})
+@EnableJpaRepositories(basePackages = {"com.fiap.gregory.payment.infra.db.*"})
 @OpenAPIDefinition(info = @Info(title = "Payment Module", version = "1.0",
 		description = "This is an API that will allow you to complete your purchase and make payment"))
 public class PaymentApplication {

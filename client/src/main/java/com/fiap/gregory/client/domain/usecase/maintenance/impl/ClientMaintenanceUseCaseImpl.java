@@ -1,7 +1,7 @@
-package com.fiap.gregory.client.domain.usecase.impl;
+package com.fiap.gregory.client.domain.usecase.maintenance.impl;
 
 import com.fiap.gregory.client.domain.mapper.ClientMapper;
-import com.fiap.gregory.client.domain.usecase.ClientUseCase;
+import com.fiap.gregory.client.domain.usecase.maintenance.ClientMaintenanceUseCase;
 import com.fiap.gregory.client.infra.db.repository.ClientRepository;
 import com.fiap.gregory.client.rest.dto.request.ClientRequest;
 import com.fiap.gregory.client.rest.exceptionhandler.exception.ClientDataIntegrityException;
@@ -16,7 +16,7 @@ import static com.fiap.gregory.client.rest.useful.ClientRole.U;
 @Service
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class ClientUseCaseImpl implements ClientUseCase {
+public class ClientMaintenanceUseCaseImpl implements ClientMaintenanceUseCase {
 
     ClientRepository repository;
     ClientMapper mapper;

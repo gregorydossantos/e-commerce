@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-public interface ClientController {
+public interface ClientMaintenanceController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     ResponseEntity<Void> createClient(@RequestBody @Valid ClientRequest request);
 }
+

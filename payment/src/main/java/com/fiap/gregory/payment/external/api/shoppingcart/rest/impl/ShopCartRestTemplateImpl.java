@@ -6,7 +6,7 @@ import org.springframework.web.client.RestTemplate;
 
 public class ShopCartRestTemplateImpl implements ShopCartRestTemplate {
 
-    private static final String PATH_API_SHOPPING_CART = "http://localhost:8083/v1/shop-cart";
+    private static final String PATH_API_SHOPPING_CART = "http://localhost:8083/v1/shop-cart/";
 
     @Override
     public ShopCartResponse getShoppingCartById(Long id) {

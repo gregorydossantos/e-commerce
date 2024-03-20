@@ -1,7 +1,7 @@
 package com.fiap.gregory.client.rest.maintenance.impl;
 
 import com.fiap.gregory.client.rest.dto.request.ClientRequest;
-import com.fiap.gregory.client.service.maintenance.ClientService;
+import com.fiap.gregory.client.service.maintenance.ClientMaintenanceService;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,13 +24,13 @@ import static org.mockito.Mockito.verify;
 
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ClientControllerImplTest {
+class ClientMaintenanceControllerImplTest {
 
     @LocalServerPort
     int port;
 
     @MockBean
-    ClientService clientService;
+    ClientMaintenanceService clientMaintenanceService;
 
     @BeforeEach
     void setUp() {
@@ -42,7 +42,7 @@ class ClientControllerImplTest {
     @DisplayName("Should be return a http status 201 - Created")
     void should_ReturnsHttpStatusCreated_when_CreateClientWithSuccess() {
         var request = Mockito.mock(ClientRequest.class);
-        doNothing().when(clientService).createClient(any(ClientRequest.class));
+        doNothing().when(clientMaintenanceService).createClient(any(ClientRequest.class));
 
         given()
                 .contentType(ContentType.JSON)
@@ -50,6 +50,6 @@ class ClientControllerImplTest {
                 .when().post(PATH_CLIENT)
                 .then().statusCode(HttpStatus.CREATED.value());
 
-        verify(clientService).createClient(any(ClientRequest.class));
+        verify(clientMaintenanceService).createClient(any(ClientRequest.class));
     }
 }

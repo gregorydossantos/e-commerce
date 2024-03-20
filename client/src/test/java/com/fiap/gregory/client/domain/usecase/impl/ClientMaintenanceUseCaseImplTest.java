@@ -1,6 +1,7 @@
 package com.fiap.gregory.client.domain.usecase.impl;
 
 import com.fiap.gregory.client.domain.mapper.ClientMapper;
+import com.fiap.gregory.client.domain.usecase.maintenance.impl.ClientMaintenanceUseCaseImpl;
 import com.fiap.gregory.client.infra.db.model.Client;
 import com.fiap.gregory.client.infra.db.repository.ClientRepository;
 import com.fiap.gregory.client.rest.dto.request.ClientRequest;
@@ -23,7 +24,7 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ActiveProfiles("test")
-class ClientUseCaseImplTest {
+class ClientMaintenanceUseCaseImplTest {
 
     ClientRequest request;
 
@@ -34,7 +35,7 @@ class ClientUseCaseImplTest {
     ClientRepository repository;
 
     @InjectMocks
-    ClientUseCaseImpl useCase;
+    ClientMaintenanceUseCaseImpl useCase;
 
     @BeforeEach
     void setUp() {

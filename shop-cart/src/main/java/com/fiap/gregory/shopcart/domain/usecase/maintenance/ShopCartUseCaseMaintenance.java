@@ -8,5 +8,5 @@ public interface ShopCartUseCaseMaintenance {
 
     ShopCartResponse increaseProduct(Long id, ShopCartRequest request);
 
-    void deleteProduct(Long id, String idShopCart, Long itemId);
+    void deleteProduct(Long id);
 }

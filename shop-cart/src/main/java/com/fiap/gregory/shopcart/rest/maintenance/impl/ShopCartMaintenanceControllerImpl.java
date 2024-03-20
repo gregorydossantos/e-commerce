@@ -61,8 +61,8 @@ public class ShopCartMaintenanceControllerImpl implements ShopCartMaintenanceCon
             @ApiResponse(responseCode = "500", description = "Internal error")
     })
     @Override
-    public ResponseEntity<Void> deleteProduct(Long id, String idShopCart, Long itemId) {
-        serviceMaintenance.deleteProduct(id, idShopCart, itemId);
+    public ResponseEntity<Void> deleteProduct(Long id) {
+        serviceMaintenance.deleteProduct(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

@@ -21,9 +21,8 @@ public class ShopCartResponse {
 
     @JsonProperty(access = WRITE_ONLY)
     private Long id;
-    private String idShopCart;
     private Integer amount;
     private BigDecimal total;
-    private ClientDTO client;
-    private List<ItemDTO> items;
+    private Long clientId;
+    private Long itemId;
 }

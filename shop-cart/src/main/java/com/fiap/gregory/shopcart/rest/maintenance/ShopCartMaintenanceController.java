@@ -17,7 +17,6 @@ public interface ShopCartMaintenanceController {
     @PutMapping(value = "{id}", consumes = APPLICATION_JSON_VALUE)
     ResponseEntity<ShopCartResponse> increaseProduct(@PathVariable("id") Long id, @RequestBody @Valid ShopCartRequest request);
 
-    @DeleteMapping(consumes = APPLICATION_JSON_VALUE)
-    ResponseEntity<Void> deleteProduct(@PathParam("id") Long id, @PathParam("idShopCart") String idShopCart,
-                                       @PathParam("itemId") Long itemId);
+    @DeleteMapping(value = "{id}", consumes = APPLICATION_JSON_VALUE)
+    ResponseEntity<Void> deleteProduct(@PathVariable("id") Long id);
 }

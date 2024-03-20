@@ -21,9 +21,6 @@ public class ShopCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "id_shop_cart")
-    String idShopCart;
-
     @Column(name = "amount")
     Integer amount;
 

@@ -27,7 +27,7 @@ public class ShopCartServiceMaintenanceImpl implements ShopCartServiceMaintenanc
     }
 
     @Override
-    public void deleteProduct(Long id, String idShopCart, Long itemId) {
-        useCaseMaintenance.deleteProduct(id, idShopCart, itemId);
+    public void deleteProduct(Long id) {
+        useCaseMaintenance.deleteProduct(id);
     }
 }

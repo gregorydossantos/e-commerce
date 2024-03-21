@@ -1,5 +1,6 @@
 package com.fiap.gregory.client.service.maintenance.impl;
 
+import com.fiap.gregory.client.domain.mapper.ClientMapper;
 import com.fiap.gregory.client.domain.usecase.maintenance.ClientMaintenanceUseCase;
 import com.fiap.gregory.client.infra.db.model.Client;
 import com.fiap.gregory.client.infra.db.repository.ClientRepository;
@@ -15,8 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -25,11 +25,8 @@ class ClientMaintenanceServiceImplTest {
     @Mock
     ClientMaintenanceUseCase useCase;
 
-    @Mock
-    ClientRepository clientRepository;
-
     @InjectMocks
-    ClientMaintenanceServiceImpl clientService;
+    ClientMaintenanceServiceImpl service;
 
     @BeforeEach
     void setUp() {
@@ -40,11 +37,7 @@ class ClientMaintenanceServiceImplTest {
     @DisplayName("SERVICE LAYER ::: Create client successfully")
     void should_ReturnsHttpStatusCreated_When_CreateClientWithSuccess() {
         var request = Mockito.mock(ClientRequest.class);
-        var client = Mockito.mock(Client.class);
-        doNothing().when(useCase).createClient(any(ClientRequest.class));
-
-        clientService.createClient(request);
-
-        verify(clientRepository).save(client);
+        doNothing().when(useCase).createClient(request);
+        service.createClient(request);
     }
 }

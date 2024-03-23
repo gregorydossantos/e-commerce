@@ -18,6 +18,7 @@ import static com.fiap.gregory.itemmanager.domain.message.ItemMessage.BAD_REQUES
 import static com.fiap.gregory.itemmanager.domain.message.ItemMessage.DATA_INTEGRITY;
 import static com.fiap.gregory.itemmanager.domain.message.ItemMessage.ITEM_NOT_FOUND;
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 @ActiveProfiles("test")
 class ItemExceptionHandlerTest {

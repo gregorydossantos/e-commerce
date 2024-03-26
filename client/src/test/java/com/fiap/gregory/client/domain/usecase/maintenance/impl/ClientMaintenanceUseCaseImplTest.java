@@ -30,21 +30,26 @@ import static org.mockito.Mockito.when;
 class ClientMaintenanceUseCaseImplTest {
 
     @Mock
-    ClientMapper mapper;
+    ClientRepository repository;
 
     @Mock
-    ClientRepository repository;
+    ClientMapper mapper;
 
     @InjectMocks
     ClientMaintenanceUseCaseImpl useCase;
 
+    ClientRequest request;
+    Client client;
+
+    @BeforeEach
+    void setUp() {
+        request = Mockito.mock(ClientRequest.class);
+        client = Mockito.mock(Client.class);
+    }
+
     @Test
     @DisplayName("USE CASE LAYER ::: Create client successfully")
     void createClient() {
-        var request = Mockito.mock(ClientRequest.class);
-        var client = Mockito.mock(Client.class);
-        client.setRole(U.getValue());
-
         when(repository.findByEmail(anyString())).thenReturn(Optional.empty());
         when(mapper.toEntity(request)).thenReturn(client);
         when(repository.save(client)).thenReturn(client);
@@ -55,8 +60,7 @@ class ClientMaintenanceUseCaseImplTest {
     @Test
     @DisplayName("USE CASE LAYER ::: Create client with error")
     void clientDataIntegrityException() {
-        var client = Mockito.mock(Client.class);
-        when(repository.findByEmail(anyString())).thenReturn(Optional.of(client));
-        assertThrows(ClientDataIntegrityException.class, () -> useCase.createClient(any()));
+        when(repository.findByEmail(request.getEmail())).thenReturn(Optional.of(client));
+        assertThrows(ClientDataIntegrityException.class, () -> useCase.createClient(request));
     }
 }

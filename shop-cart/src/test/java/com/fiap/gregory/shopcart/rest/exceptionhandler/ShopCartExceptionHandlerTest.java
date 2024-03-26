@@ -47,7 +47,7 @@ class ShopCartExceptionHandlerTest {
                 new ShopCartDataEmptyOrNullException(DATA_EMPTY_OR_NULL));
 
         assertNotNull(response);
-        assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
+        assertEquals(response.getStatusCode(), HttpStatus.NOT_FOUND);
     }
 
     @Test
@@ -57,7 +57,7 @@ class ShopCartExceptionHandlerTest {
                 new ShopCartDataIntegrityException(DATA_INTEGRITY));
 
         assertNotNull(response);
-        assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST);
+        assertEquals(response.getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @Test

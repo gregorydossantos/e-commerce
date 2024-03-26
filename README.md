@@ -29,12 +29,6 @@ The core of the project will be creating users, managing access, managing items,
 #### Database Model
 ![Web 1](https://github.com/gregorydossantos/e-commerce/blob/develop/assets/database-model.png)
 <br />
-#### Sequence Diagram - Client Module
-![Web 1](https://github.com/gregorydossantos/e-commerce/blob/develop/assets/client-sequence.png)
-<br />
-#### Sequence Diagram - Item-Manager Module
-#### Sequence Diagram - Shop-Cart Module
-#### Sequence Diagram - Payment Module
 #### Notes:
 To create the database and upload it locally, first confirm that you have docker installed on your machine, after that 
 follow these steps:

@@ -1,9 +1,9 @@
-# E-Commerce API
+# E-Commerce Project
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/gregorydossantos/projeto-sds3/blob/main/LICENSE)
-<br/>This is a project from my graduate studies in architecture and Java software development at FIAP.
+<br/>This is a project from my graduate studies in Architecture and Software Development at FIAP.
 
 ## About E-Commerce
-This project consists of creating a microservice with 4 modules. All will be built on the Rest API standard and also the
+This project consists of creating a microservice with 4 modules independent of each other. All will be built on the Rest API standard and also the
 main libraries used on the market today.
 
 The core of the project will be creating users, managing access, managing items, shopping carts and making payments.
@@ -27,9 +27,11 @@ The core of the project will be creating users, managing access, managing items,
 ![Web 1](https://github.com/gregorydossantos/e-commerce/blob/develop/assets/project-architecture.png)
 <br />
 #### Database Model
-![Web 1](https://github.com/gregorydossantos/e-commerce/blob/develop/assets/databse-model.png)
+![Web 1](https://github.com/gregorydossantos/e-commerce/blob/develop/assets/database-model.png)
 <br />
 #### Sequence Diagram - API Client
+![Web 1](https://github.com/gregorydossantos/e-commerce/blob/develop/assets/client-sequence.png)
+<br />
 #### Sequence Diagram - API Item-Manager
 #### Sequence Diagram - API Shop-Cart
 #### Sequence Diagram - API Payment
@@ -39,7 +41,15 @@ follow these steps:
 <br/> - cd e-commerce/docker
 <br/> - sudo docker-compose up -d (to start container with database)
 <br/> - sudo docker-compose down -d (to stop container)
+<br/> I also included a directory containing the endpoint call collections in the postman-collections folder
 
 ### Documentation (Swagger - Endpoints):
 After running the project, we can access the API documentation through Swagger: <br/>
-Link: http://localhost:8080/swagger-ui/index.html#/
+#### Client Module
+Link: http://localhost:8081/swagger-ui/index.html#/
+#### Item-Manager Module
+Link: http://localhost:8082/swagger-ui/index.html#/
+#### Shop-Cart Module
+Link: http://localhost:8083/swagger-ui/index.html#/
+#### Payment Module
+Link: http://localhost:8084/swagger-ui/index.html#/

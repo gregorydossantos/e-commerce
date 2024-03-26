@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "f2e6450d-ee85-4ab8-8126-a7172a26acb2",
+		"name": "E-Commerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12445198"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Maintenance",
+					"item": [
+						{
+							"name": "createClient",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Gregory\",\n    \"lastName\":\"Castezana\",\n    \"email\":\"gregory@gmail.com\",\n    \"password\":1234567890\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-localhost}}8081/v1/client",
+									"host": [
+										"{{url-localhost}}8081"
+									],
+									"path": [
+										"v1",
+										"client"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Query",
+					"item": [
+						{
+							"name": "getClientById",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url-localhost}}8081/v1/client/1",
+									"host": [
+										"{{url-localhost}}8081"
+									],
+									"path": [
+										"v1",
+										"client",
+										"1"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Item-Manager",
+			"item": [
+				{
+					"name": "Maintenance",
+					"item": [
+						{
+							"name": "createItem",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product\":\"Smart Watch Garmin 765\",\n    \"price\": 1599.99\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-localhost}}8082/v1/item-manager",
+									"host": [
+										"{{url-localhost}}8082"
+									],
+									"path": [
+										"v1",
+										"item-manager"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateItem",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product\":\"Charge type USB and C\",\n    \"price\": 289.99\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-localhost}}8082/v1/item-manager/1",
+									"host": [
+										"{{url-localhost}}8082"
+									],
+									"path": [
+										"v1",
+										"item-manager",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteItem",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url-localhost}}8082/v1/item-manager/2",
+									"host": [
+										"{{url-localhost}}8082"
+									],
+									"path": [
+										"v1",
+										"item-manager",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Query",
+					"item": [
+						{
+							"name": "getAllItems",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url-localhost}}8082/v1/item-manager",
+									"host": [
+										"{{url-localhost}}8082"
+									],
+									"path": [
+										"v1",
+										"item-manager"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOneItemById",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-localhost}}8082/v1/item-manager/1",
+									"host": [
+										"{{url-localhost}}8082"
+									],
+									"path": [
+										"v1",
+										"item-manager",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Shop-Cart",
+			"item": [
+				{
+					"name": "Maintenance",
+					"item": [
+						{
+							"name": "createShopCart",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idShopCart\" : \"123456789\",\r\n    \"amount\" : 1,\r\n    \"total\" : 199.99,\r\n    \"clientId\" : 1,\r\n    \"itemId\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-localhost}}8083/v1/shop-cart",
+									"host": [
+										"{{url-localhost}}8083"
+									],
+									"path": [
+										"v1",
+										"shop-cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "increaseProduct",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idShopCart\" : \"123456789\",\r\n    \"amount\" : 1,\r\n    \"total\" : 199.99,\r\n    \"clientId\" : 1,\r\n    \"itemId\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-localhost}}8083/v1/shop-cart",
+									"host": [
+										"{{url-localhost}}8083"
+									],
+									"path": [
+										"v1",
+										"shop-cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteProduct",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url-localhost}}8083/v1/shop-cart?id=1&idShopCart=123456789&itemId=1",
+									"host": [
+										"{{url-localhost}}8083"
+									],
+									"path": [
+										"v1",
+										"shop-cart"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										},
+										{
+											"key": "idShopCart",
+											"value": "123456789"
+										},
+										{
+											"key": "itemId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Query",
+					"item": [
+						{
+							"name": "createShopCart",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url-localhost}}8083/v1/shop-cart/1",
+									"host": [
+										"{{url-localhost}}8083"
+									],
+									"path": [
+										"v1",
+										"shop-cart",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"operation\" : \"C\",\r\n    \"paid\" : true,\r\n    \"idShopCart\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-localhost}}8084/v1/payment",
+							"host": [
+								"{{url-localhost}}8084"
+							],
+							"path": [
+								"v1",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

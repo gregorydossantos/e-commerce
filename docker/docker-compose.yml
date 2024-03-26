@@ -4,6 +4,8 @@ services:
   local-postgres-compose:
     image: postgres
     environment:
+      POSTGRES_DB: "e-commerce_db"
+      POSTGRES_USER: "postgress"
       POSTGRES_PASSWORD: "12345"
     ports:
       - "5433:5432"

@@ -64,10 +64,12 @@ public class ShopCartUseCaseMaintenanceImpl implements ShopCartUseCaseMaintenanc
     }
 
     private void validateClient(Long clientId) {
-        clientRestTemplate.getClientById(clientId);
+        var id = String.valueOf(clientId);
+        clientRestTemplate.getClientById(id);
     }
 
     private void validateItem(Long itemId) {
-        itemRestTemplate.getItemById(itemId);
+        var id = String.valueOf(itemId);
+        itemRestTemplate.getItemById(id);
     }
 }

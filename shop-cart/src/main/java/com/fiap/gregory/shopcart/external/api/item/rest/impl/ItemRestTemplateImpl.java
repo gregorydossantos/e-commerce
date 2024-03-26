@@ -16,9 +16,10 @@ public class ItemRestTemplateImpl implements ItemRestTemplate {
     private static final String PATH_API_ITEM = "http://localhost:8082/v1/item-manager/";
 
     @Override
-    public ItemResponse getItemById(Long id) {
+    public ItemResponse getItemById(String id) {
+        final String PATH_API_ITEM_ID = PATH_API_ITEM + id;
         RestTemplate restTemplate = new RestTemplate();
-        var response = restTemplate.getForObject(PATH_API_ITEM + id, ItemResponse.class);
+        var response = restTemplate.getForObject(PATH_API_ITEM_ID, ItemResponse.class);
 
         if (Objects.isNull(response)) {
             throw new ShopCartNotFoundException(ITEM_NOT_FOUND);

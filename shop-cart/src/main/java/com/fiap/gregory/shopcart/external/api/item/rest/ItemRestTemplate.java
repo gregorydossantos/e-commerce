@@ -4,5 +4,5 @@ import com.fiap.gregory.shopcart.external.api.item.response.ItemResponse;
 
 public interface ItemRestTemplate {
 
-    ItemResponse getItemById(Long id);
+    ItemResponse getItemById(String id);
 }
